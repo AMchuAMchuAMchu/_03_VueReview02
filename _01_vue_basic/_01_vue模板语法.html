@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>😮😮</title>
+</head>
+<script src="vue/vue.js"></script>
+<body>
+<div id="demo">
+    <h1>Hello,I'm {{name}},天气{{weather}}</h1>
+    <h1>
+        <a :href="school.url">欢迎来到{{school.name}}学习!!😯😯</a>
+    </h1>
+    用户名(单向):
+    <input type="text" name="username" v-bind:value="school.name">
+<br>
+    用户名(双向):<input type="text" name="username" v-model:value="school.name"/><br>
+    <button @click="showInfo01">点我提示信息01</button>
+    <button @click="showInfo02($event,'楪祈')">点我提示信息02</button>
+</div>
+<script type="text/javascript">
+    Vue.config.productionTip=false
+    new Vue({
+        'el':'#demo',
+        'data':{
+            'name':'Vue😅😅',
+            'weather':'很好啊!',
+            'school':{
+                'name':'尚硅谷',
+                'url':'http://atguigu.com'
+            }
+        },
+        'methods':{
+            showInfo01(event){
+                alert('你好同学!!1001')
+            },
+            showInfo02(event,name){
+                alert('你好同学!!'+name)
+            }
+        }
+    })
+</script>
+</body>
+</html>

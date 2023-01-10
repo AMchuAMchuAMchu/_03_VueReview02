@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>😅😅😅</title>
+    <script src="vue/vue.js"></script>
+</head>
+<body>
+<div id="root">
+    姓:<input type="text" v-model:value="firstName"><br>
+    名:<input type="text" v-model:value="lastName"><br>
+<!--    全名:<h1>{{firstName}}-{{lastName}}</h1>-->
+    全名:<h1>{{fullName}}</h1>
+    <h1>今天天气很{{weather}}😅😅</h1>
+    <button @click="changeWeather">点我修改天气</button>
+    <h1>这里是{{school.name}},知名老师:{{school.teacher}}</h1>
+    <button @click="changeTeacher">点我修改天气</button>
+</div>
+</body>
+<script type="text/javascript">
+    Vue.config.productionTip=false
+    new Vue({
+        'el':'#root',
+        'data':{
+            'firstName':'张',
+            'lastName':'三',
+            'isHot':'false',
+            'isShk':'false',
+            'count':'0',
+            'school':{
+                'name':'尚硅谷',
+                'teacher':'宋红康'
+            }
+        },
+        methods:{
+            changeWeather(event){
+                this.count++
+                this.isHot = !this.isHot
+            },
+            changeTeacher(event){
+                this.isShk = !this.isShk
+                this.school.teacher = this.isShk?'宋红康':'张天禹'
+            }
+        },
+        'computed':{
+            weather:{
+                get(){
+                    return this.isHot?'炎热':'寒冷'
+                }
+            },
+            fullName:{
+                get(){
+                    return this.firstName+'-'+this.lastName
+                }
+            }
+        },
+        'watch':{
+            'isHot':{
+                handler(newValue,oldValue){
+                    console.log(this.count+'isHot的值被修改了!!',newValue,oldValue)
+                }
+            },
+            'school':{
+                deep:true,
+                handler(newValue, oldValue) {
+                    console.log('>>>school被修改了....')
+                }
+            }
+        }
+
+    })
+</script>
+</html>

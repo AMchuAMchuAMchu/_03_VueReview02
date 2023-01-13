@@ -8,6 +8,10 @@
 <body>
 <div id="root">
     <h1>人员列表</h1>
+    <h1>排序</h1>
+    <button @click="sortType=0">原序</button>
+    <button @click="sortType=1">降序</button>
+    <button @click="sortType=2">升序</button>
     <input type="text" name="keyword" v-model:value="keyword" placeholder="请输入人员名字进行查询😅😅"><br>
     <ul>
         <li v-for="(item,index) in filterAnimes" :key="index">{{item.name}}-{{item.time}}-{{item.c01}}</li>
@@ -15,24 +19,36 @@
 </div>
 <script type="text/javascript">
     new Vue({
-        'el':'#root',
-        'data':{
-            'keyword':'',
-            'animes':[
-                {'name':'罪恶王冠','time':'2011','c01':'楪祈'},
-                {'name':'我的青春恋爱物语果然有问题','time':'2013','c01':'雪乃'},
-                {'name':'斩赤红之瞳!','time':'2014','c01':'赤瞳'},
-                {'name':'来自风平浪静的明天','time':'2013','c01':'向井户爱花'},
-                {'name':'那朵花','time':'2011','c01':'本间芽衣子'},
+        'el': '#root',
+        'data': {
+            'keyword': '',
+            'sortType': '0',
+            'animes': [
+                {'name': '罪恶王冠', 'time': '2011', 'c01': '楪祈'},
+                {'name': '我的青春恋爱物语果然有问题', 'time': '2013', 'c01': '雪乃'},
+                {'name': '斩赤红之瞳!', 'time': '2014', 'c01': '赤瞳'},
+                {'name': '来自风平浪静的明天', 'time': '2013', 'c01': '向井户爱花'},
+                {'name': '那朵花', 'time': '2011', 'c01': '本间芽衣子'},
             ],
-            'filterAnimes':[]
+            'filterAnimes': []
         },
-        'watch':{
-            'keyword':{
-                immediate:'true',
-                handler(val){
-                    this.filterAnimes = this.animes.filter((p)=>{
+        'watch': {
+            'keyword': {
+                immediate: 'true',
+                handler(val) {
+                    this.filterAnimes = this.animes.filter((p) => {
                         return p.name.indexOf(val) !== -1
+                    })
+                }
+            },
+            'sortType': {
+                immediate: 'true',
+                handler(val) {
+                    console.log('>>>>')
+                    this.filterAnimes = this.filterAnimes.sort((p1, p2) => {
+                        if (this.sortType) {
+                            return this.sortType === 1 ? p2.time - p1.time : p1.time - p2.time
+                        }
                     })
                 }
             }

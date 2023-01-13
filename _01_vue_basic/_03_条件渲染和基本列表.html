@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>😄😄</title>
+</head>
+<script src="vue/vue.js"></script>
+<style>
+    #box01{
+        height: 200px;
+        width: 200px;
+        background-color: aqua;
+        margin: 100px auto;
+    }
+    ul{
+        float: left ;
+    }
+    li{
+        height: 100px;
+        width: 200px;
+        background-color: aqua;
+        float: left;
+        list-style: none;
+    }
+
+</style>
+<body>
+<div id="root">
+    <h1 v-show="false">Hello,{{animes}}</h1>
+    <div :style="styleStr"></div>
+    <ul v-for="(item,index) in animes" :key="index">
+        <li>{{item.name}}-{{item.time}}-{{item.c01}}</li>
+    </ul>
+</div>
+<script type="text/javascript">
+    new Vue({
+        'el':'#root',
+        'data':{
+            'animes':[
+            {'name':'罪恶王冠','time':'2011','c01':'楪祈'},
+            {'name':'真物','time':'2013','c01':'雪乃'},
+            {'name':'刀剑神域','time':'2011','c01':'诗乃'}],
+            'styleStr':{
+                'height': '200px',
+                'width': '200px',
+                'background-color': 'aqua',
+                'margin': '100px auto',
+            }
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>😅😅</title>
+</head>
+<script src="vue/vue.js"></script>
+<body>
+<div id="root">
+    <hello></hello>
+</div>
+<script type="text/javascript">
+    Vue.config.productionTip = false
+    const hello = Vue.extend({
+        'template':`
+            <div>
+            <h1>hello,{{name}}😁😁</h1>
+</div>
+        `,
+        data(){
+            return {
+                'name':'EGOIST'
+            }
+        }
+    })
+
+    new Vue({
+        'el':'#root',
+        'components':{
+            hello
+        }
+    })
+
+</script>
+</body>
+</html>

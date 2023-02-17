@@ -12,21 +12,21 @@
 <script type="text/javascript">
     Vue.config.productionTip = false
     const hello = Vue.extend({
-        'template':`
-            <div>
-            <h1>hello,{{name}}😁😁</h1>
-</div>
+        'template': `
+          <div>
+          <h1>hello,{{ name }}😁😁</h1>
+          </div>
         `,
-        data(){
+        data() {
             return {
-                'name':'EGOIST'
+                'name': 'EGOIST'
             }
         }
     })
 
     new Vue({
-        'el':'#root',
-        'components':{
+        'el': '#root',
+        'components': {
             hello
         }
     })

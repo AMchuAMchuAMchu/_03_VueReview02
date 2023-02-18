@@ -1,35 +1,53 @@
 <template>
   <div id="root">
-   <Anime :animeList="恋爱" title="恋爱"></Anime>
-   <Anime :animeList="冒险" title="冒险">
-     <img src="./assets/Psycho-pass.jpg" alt=""/>
-   </Anime>
-   <Anime :animeList="奇幻情感" title="奇幻情感"></Anime>
+    <h1>当前求和为{{$store.state.sum}}</h1>
+  <select v-model.number="n">
+    <option :value="1">1</option>
+    <option :value="2">2</option>
+    <option :value="3">3</option>
+  </select>
+  <button @click="add">+</button>
+  <button @click="sub">-</button>
+  <button @click="addOdd">当前求和为奇数再加</button>
+  <button @click="addWait">等一等再加</button>
   </div>
+
 </template>
 
 <script>
-
-
-import Anime from "@/components/Anime";
 export default {
   name: 'App',
-  components: {
-    Anime,
-  },
   data() {
     return {
-        "恋爱":['堀与宫村','我的青春恋爱物语果然有问题','樱花庄的宠物女孩'],
-        "冒险":['全职猎人','来自深渊','樱花庄的宠物女孩'],
-        "奇幻情感":['罪恶王冠','心理测量者','灼眼的夏娜'],
+      // sum:0,
+      n:1
     }
   },
-
-
+  methods:{
+    add(){
+      // this.sum  += this.n
+      this.$store.dispatch('add',this.n)
+    },
+    sub(){
+      // this.sum  -= this.n
+      this.$store.dispatch('sub',this.n)
+    },
+    addOdd(){
+      // if (this.sum % 2 !== 0){
+      //   this.sum  += this.n
+      // }
+      this.$store.dispatch('addOdd',this.n)
+    },
+    addWait(){
+      this.$store.dispatch('addWait',this.n)
+    },
+  }
 }
 </script>
 
-<style>
-
+<style lang="css">
+button{
+  margin-left: 5px;
+}
 
 </style>

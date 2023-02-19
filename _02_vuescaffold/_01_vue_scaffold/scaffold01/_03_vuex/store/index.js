@@ -36,6 +36,8 @@ const mutations = {
     },
 }
 const state = {
+    school:'尚硅谷',
+    subject:'大数据',
     sum:0
 }
 

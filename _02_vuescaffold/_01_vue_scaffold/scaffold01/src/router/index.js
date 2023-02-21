@@ -25,7 +25,10 @@ export default new VueRouter({
                     children:[
                         {
                             path:'Detail',
-                            component:Detail
+                            component:Detail,
+                            props({query:{id,title}}){
+                                return {id,title}
+                            }
                         }
                     ]
                 },

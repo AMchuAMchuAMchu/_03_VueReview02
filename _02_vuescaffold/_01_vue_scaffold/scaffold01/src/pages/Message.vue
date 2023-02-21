@@ -9,6 +9,8 @@
             title:m.title
           }
         }">{{m.title}}</router-link>&nbsp;&nbsp;
+        <button @click="pushShow(m)">push查看</button>
+        <button @click="replaceShow(m)">replace查看</button>
       </li>
     </ul>
     <hr>
@@ -27,6 +29,31 @@ export default {
         {id:'1003','title':'消息1003-斩赤红之瞳'},
       ]
     }
+  },
+  methods:{
+    pushShow(m){
+      // if (this.$route.path !== '/Home/Message/Detail') {
+        this.$router.push({
+          path: '/Home/Message/Detail',
+          query: {
+            id: m.id,
+            title: m.title
+          }
+        })
+      // }
+    },
+    replaceShow(m){
+      // if (this.$route.path !== '/Home/Message/Detail') {
+        this.$router.replace({
+          path: '/Home/Message/Detail',
+          query: {
+            id: m.id,
+            title: m.title
+          }
+        })
+      // }
+    },
+
   }
 }
 </script>

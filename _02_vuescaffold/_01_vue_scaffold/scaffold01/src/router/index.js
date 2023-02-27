@@ -5,7 +5,7 @@ import News from "@/pages/News";
 import Message from "@/pages/Message";
 import Detail from "@/pages/Detail";
 
-export default new VueRouter({
+const router = new VueRouter({
     routes:[
         {
             path:'/About',
@@ -36,3 +36,18 @@ export default new VueRouter({
         },
     ]
 })
+
+router.beforeEach((to,from,next)=>{
+    if (to.path === '/Home/Message'||to.path === '/Home/News'){
+        if (localStorage.getItem('school')==='atguigu'){
+            next()
+        }else{
+            alert('😅😅学校名不对!!')
+        }
+    }else{
+        next()
+    }
+})
+
+export default router
+

@@ -2,7 +2,8 @@
   <div id="app">
 <!--    <school/>-->
 <!--    <YourName/>-->
-    <ClassBinding/>
+<!--    <ClassBinding/>-->
+    <List/>
   </div>
 </template>
 
@@ -12,12 +13,15 @@ import School from "@/components/School";
 import YourName from "@/components/YourName";
 
 import ClassBinding from "@/components/ClassBinding";
+
+import List from "@/components/List";
 export default {
   name: 'App',
   components: {
     School,
     YourName,
-    ClassBinding
+    ClassBinding,
+    List
   }
 }
 </script>

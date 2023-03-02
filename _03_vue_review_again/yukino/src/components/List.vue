@@ -55,6 +55,8 @@ export default {
         var item = {'id': _id, 'name': this.name, 'c1': this.c1}
         this.animeListF.push(item)
         this.animeList.push(item)
+        this.name = ''
+        this.c1 = ''
         console.log(item)
       }
 

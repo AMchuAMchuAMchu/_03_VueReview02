@@ -3,7 +3,8 @@
 <!--    <school/>-->
 <!--    <YourName/>-->
 <!--    <ClassBinding/>-->
-    <List/>
+<!--    <List/>-->
+    <Form/>
   </div>
 </template>
 
@@ -15,13 +16,17 @@ import YourName from "@/components/YourName";
 import ClassBinding from "@/components/ClassBinding";
 
 import List from "@/components/List";
+
+import Form from "@/components/Form";
 export default {
   name: 'App',
   components: {
     School,
     YourName,
     ClassBinding,
-    List
+    List,
+    Form
+
   }
 }
 </script>

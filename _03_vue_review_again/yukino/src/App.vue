@@ -5,7 +5,8 @@
 <!--    <ClassBinding/>-->
 <!--    <List/>-->
 <!--    <Form/>-->
-    <Filters/>
+<!--    <Filters/>-->
+    <LifeCircleHook/>
   </div>
 </template>
 
@@ -21,6 +22,8 @@ import List from "@/components/List";
 import Form from "@/components/Form";
 
 import Filters from "@/components/Filters";
+
+import LifeCircleHook from "@/components/LifeCircleHook";
 export default {
   name: 'App',
   components: {
@@ -29,7 +32,8 @@ export default {
     ClassBinding,
     List,
     Form,
-    Filters
+    Filters,
+    LifeCircleHook
 
   }
 }

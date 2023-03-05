@@ -4,7 +4,8 @@
 <!--    <YourName/>-->
 <!--    <ClassBinding/>-->
 <!--    <List/>-->
-    <Form/>
+<!--    <Form/>-->
+    <Filters/>
   </div>
 </template>
 
@@ -18,6 +19,8 @@ import ClassBinding from "@/components/ClassBinding";
 import List from "@/components/List";
 
 import Form from "@/components/Form";
+
+import Filters from "@/components/Filters";
 export default {
   name: 'App',
   components: {
@@ -25,7 +28,8 @@ export default {
     YourName,
     ClassBinding,
     List,
-    Form
+    Form,
+    Filters
 
   }
 }

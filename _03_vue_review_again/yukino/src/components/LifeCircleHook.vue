@@ -2,6 +2,7 @@
   <div>
     <div :style="box01"></div>
     <button @click="stop">停止变换</button>
+    <h3 ref="title"></h3>
   </div>
 </template>
 
@@ -26,6 +27,7 @@ export default {
     }
   },
   mounted() {
+    this.$refs.title.innerHTML = '冰雪女王-雪之下雪乃'
     //实现盒子的颜色渐变从1->0,再从0->1,而不是之前的简单的1->0,然后又是1->0....
     this.timer = setInterval(() => {
       if (this.box01.opacity > 0 && this.flag === true) {

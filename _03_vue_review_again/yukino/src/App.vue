@@ -6,11 +6,14 @@
 <!--    <List/>-->
 <!--    <Form/>-->
 <!--    <Filters/>-->
-    <LifeCircleHook/>
+<!--    <LifeCircleHook/>-->
+    <Father/>
   </div>
 </template>
 
 <script>
+
+
 import School from "@/components/School";
 
 import YourName from "@/components/YourName";
@@ -24,6 +27,10 @@ import Form from "@/components/Form";
 import Filters from "@/components/Filters";
 
 import LifeCircleHook from "@/components/LifeCircleHook";
+
+import Father from "@/components/cli/Father";
+
+import Son from "@/components/cli/Son";
 export default {
   name: 'App',
   components: {
@@ -33,8 +40,9 @@ export default {
     List,
     Form,
     Filters,
-    LifeCircleHook
-
+    LifeCircleHook,
+    Father,
+    Son
   }
 }
 </script>

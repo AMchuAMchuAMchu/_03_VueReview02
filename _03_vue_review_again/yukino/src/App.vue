@@ -7,42 +7,59 @@
 <!--    <Form/>-->
 <!--    <Filters/>-->
 <!--    <LifeCircleHook/>-->
-    <Father/>
+<!--    <Father1001/>-->
+    <MyTodoList/>
   </div>
 </template>
 
 <script>
 
 
-import School from "@/components/School";
+// import School from "@/components/School";
+//
+// import YourName from "@/components/YourName";
+//
+// import ClassBinding from "@/components/ClassBinding";
+//
+// import List from "@/components/List";
+//
+// import Form from "@/components/Form";
+//
+// import Filters from "@/components/Filters";
+//
+// import LifeCircleHook from "@/components/LifeCircleHook";
+//
+// import Father from "@/components/cli/Father";
+//
+// import Son from "@/components/cli/Son";
+// import Father1001 from "@/components/cli/Father1001";
 
-import YourName from "@/components/YourName";
+import MySearch from "@/components/todoList/MySearch";
 
-import ClassBinding from "@/components/ClassBinding";
+import MyList from "@/components/todoList/MyList";
 
-import List from "@/components/List";
+import MyFooter from "@/components/todoList/MyFooter";
 
-import Form from "@/components/Form";
+import MyTodoList from "@/components/todoList/MyTodoList";
 
-import Filters from "@/components/Filters";
-
-import LifeCircleHook from "@/components/LifeCircleHook";
-
-import Father from "@/components/cli/Father";
-
-import Son from "@/components/cli/Son";
 export default {
   name: 'App',
   components: {
-    School,
-    YourName,
-    ClassBinding,
-    List,
-    Form,
-    Filters,
-    LifeCircleHook,
-    Father,
-    Son
+    // School,
+    // YourName,
+    // ClassBinding,
+    // List,
+    // Form,
+    // Filters,
+    // LifeCircleHook,
+    // Father,
+    // Son,
+    // Father1001,
+    MySearch,
+    MyList,
+    MyFooter,
+    MyTodoList
+
   }
 }
 </script>

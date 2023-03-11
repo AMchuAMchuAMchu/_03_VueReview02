@@ -1,9 +1,6 @@
 <template>
   <div>
-    <MyItem/>
-    <MyItem/>
-    <MyItem/>
-    <MyItem/>
+    <MyItem :animeList="animeList" />
   </div>
 </template>
 
@@ -12,6 +9,7 @@ import MyItem from "@/components/todoList/MyItem";
 
 export default {
   name: "MyList",
+  props:['animeList'],
   components:{
     MyItem
   }

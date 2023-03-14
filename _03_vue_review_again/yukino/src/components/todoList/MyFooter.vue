@@ -1,6 +1,6 @@
 <template>
   <div class="anime_footer">
-    <input type="checkbox" :checked="count===4" name="anime_done">
+    <input type="checkbox" :checked="count===animeList.length" name="anime_done">
     <span>
     &emsp;已完成{{count}}/全部{{animeList.length}}
     </span>

@@ -1,11 +1,11 @@
 <template>
   <div>
     <ul class="item_ul">
-      <li class="li_item" v-for="item in animeList_item" @click="forCheckbox(item.id)" :key="item.id">
-        &emsp;<input type="checkbox" :checked="item.isDone" id="select_item" name="anime">
+      <li ref="li_item" class="li_item" v-for="item in animeList_item" @click="forCheckbox(item.id)" :key="item.id">
+        &emsp;<input type="checkbox" :checked="item.isDone" class="select_item" name="anime">
         &nbsp;{{ item.name }}
-        <div id="delete_item">
-          <button id="delete_item_button">删除</button>
+        <div class="delete_item">
+          <button class="delete_item_button">删除</button>
         </div>
       </li>
     </ul>
@@ -23,30 +23,70 @@ export default {
   },
   methods: {
     forCheckbox(id) {
+      // console.log('>>>',id)
       this.animeList_item.forEach(p => {
         if (p.id === id) {
           p.isDone = !p.isDone
         }
       })
-      this.$bus.$emit('checkDone',this.animeList_item)
+      this.$bus.$emit('checkDone', this.animeList_item)
     },
   },
   // 实现鼠标悬停显示删除按钮,鼠标离开删除按钮消失的方法
+  // watch:{
+  //   animeList_item: {
+  //     deep: true,
+  //     immediate: true,
+  //     handler(newValue,oldValue) {
+  //       // console.log('>>>',this.animeList_item)
+  //       //因为需要绑定多个,所以的话是querySelectorAll
+  //       let arr_li = document.querySelectorAll('.li_item')
+  //       // console.log('>>>',arr_li)
+  //       //这里的话只有每一个都添加绑定事件的话才会
+  //       arr_li.forEach(item => {
+  //         item.addEventListener('mouseenter', () => {
+  //           // console.log('>>>',item.childNodes[3].childNodes[0])
+  //           item.childNodes[3].childNodes[0].style.display = 'block'
+  //         }),
+  //             item.addEventListener('mouseleave', () => {
+  //               // console.log('>>>')
+  //               item.childNodes[3].childNodes[0].style.display = 'none'
+  //             })
+  //       })
+  //     }
+  //   }
+  // },
   mounted() {
     //因为需要绑定多个,所以的话是querySelectorAll
-    var arr_li = document.querySelectorAll('.li_item')
+    let arr_li = document.querySelectorAll('.li_item')
     //这里的话只有每一个都添加绑定事件的话才会
-    arr_li.forEach(item=>{
-      item.addEventListener('mouseenter',()=>{
+    arr_li.forEach(item => {
+      item.addEventListener('mouseenter', () => {
         // console.log('>>>',item.childNodes[3].childNodes[0])
         item.childNodes[3].childNodes[0].style.display = 'block'
       }),
-      item.addEventListener('mouseleave',()=>{
-        // console.log('>>>')
-        item.childNodes[3].childNodes[0].style.display = 'none'
-      })
+          item.addEventListener('mouseleave', () => {
+            // console.log('>>>')
+            item.childNodes[3].childNodes[0].style.display = 'none'
+          })
+    })
+  },
+  updated() {
+    //因为需要绑定多个,所以的话是querySelectorAll
+    let arr_li = document.querySelectorAll('.li_item')
+    //这里的话只有每一个都添加绑定事件的话才会
+    arr_li.forEach(item => {
+      item.addEventListener('mouseenter', () => {
+        // console.log('>>>',item.childNodes[3].childNodes[0])
+        item.childNodes[3].childNodes[0].style.display = 'block'
+      }),
+          item.addEventListener('mouseleave', () => {
+            // console.log('>>>')
+            item.childNodes[3].childNodes[0].style.display = 'none'
+          })
     })
   }
+
 }
 </script>
 
@@ -72,17 +112,16 @@ li {
 }
 
 
-
 li:hover {
   background-color: #d8d9d2;
 }
 
-#delete_item {
+.delete_item {
   float: right;
   margin-right: 10px;
 }
 
-#delete_item_button{
+.delete_item_button {
   background-color: #d53a3a;
   padding: 5px;
   border-radius: 5px;

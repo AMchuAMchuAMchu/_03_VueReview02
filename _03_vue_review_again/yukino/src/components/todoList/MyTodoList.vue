@@ -40,7 +40,7 @@ export default {
       // console.log('>>>>>',this.animeList)
     },
     searchAnime(anime){
-      var anime_item = {'id':nanoid.id,'name':anime,'isDone':false}
+      let anime_item = {'id':nanoid(),'name':anime,'isDone':false}
       this.animeList.unshift(anime_item)
     }
   },

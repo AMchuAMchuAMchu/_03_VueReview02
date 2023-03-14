@@ -1,6 +1,5 @@
 <template>
   <div>
-    <input id="keyword" type="text" name="anime_name" placeholder="请输入您的用户名称😅😅,输入完毕之后按下回车^_^">
     <ul class="item_ul">
       <li class="li_item" v-for="item in animeList_item" @click="forCheckbox(item.id)" :key="item.id">
         &emsp;<input type="checkbox" :checked="item.isDone" id="select_item" name="anime">
@@ -29,6 +28,7 @@ export default {
           p.isDone = !p.isDone
         }
       })
+      this.$bus.$emit('checkDone',this.animeList_item)
     },
   },
   // 实现鼠标悬停显示删除按钮,鼠标离开删除按钮消失的方法
@@ -71,14 +71,7 @@ li {
   line-height: 40px;
 }
 
-#keyword {
-  display: block;
-  margin: 14px auto;
-  width: 95%;
-  height: 30px;
-  border: 3px solid rgba(0, 0, 0, 0.3);
-  border-radius: 3px;
-}
+
 
 li:hover {
   background-color: #d8d9d2;

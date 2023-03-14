@@ -3,12 +3,13 @@
     <div class="box_in">
       <MySearch/>
       <MyList :animeList="animeList" />
-      <MyFooter/>
+      <MyFooter :animeList="animeList" />
     </div>
   </div>
 </template>
 
 <script>
+import {nanoid} from "nanoid";
 
 import MySearch from "@/components/todoList/MySearch";
 
@@ -32,6 +33,23 @@ export default {
     MySearch,
     MyList,
     MyFooter
+  },
+  methods:{
+    checkDone(data){
+      this.animeList = data
+      // console.log('>>>>>',this.animeList)
+    },
+    searchAnime(anime){
+      var anime_item = {'id':nanoid.id,'name':anime,'isDone':false}
+      this.animeList.unshift(anime_item)
+    }
+  },
+  mounted() {
+    this.$bus.$on('checkDone',this.checkDone)
+    this.$bus.$on('searchAnime',this.searchAnime)
+  },
+  beforeDestroy() {
+    this.$bus.$off('checkDone')
   }
 
 }

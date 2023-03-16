@@ -144,6 +144,7 @@ li:hover {
 
 .delete_item_button {
   background-color: #d53a3a;
+
   padding: 5px;
   border-radius: 5px;
   display: none;

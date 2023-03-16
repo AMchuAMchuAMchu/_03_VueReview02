@@ -35,6 +35,15 @@ export default {
     MyFooter
   },
   methods: {
+    delete_item(data){
+      this.animeList = this.animeList.filter(a=>{
+        return a.id !== data
+      })
+      this.$bus.$emit('updateItemFrom',this.animeList)
+
+      // console.log('>>>>',this.animeList)
+
+    },
     // 检查已完成的(就是打钩的那些)
     checkDone(data) {
       this.animeList = data
@@ -76,6 +85,8 @@ export default {
   },
   // 生命周期钩子:挂载全局事件
   mounted() {
+    // 点击按钮删除数据
+    this.$bus.$on('delete_item',this.delete_item)
     //检查已勾选的
     this.$bus.$on('checkDone', this.checkDone)
     //添加anime

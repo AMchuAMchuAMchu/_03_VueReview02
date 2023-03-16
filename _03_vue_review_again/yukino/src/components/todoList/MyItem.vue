@@ -5,7 +5,7 @@
         &emsp;<input type="checkbox" :checked="item.isDone" class="select_item" name="anime">
         &nbsp;{{ item.name }}
         <div class="delete_item">
-          <button class="delete_item_button">删除</button>
+          <button @click="delete_item(item.id)" class="delete_item_button">删除</button>
         </div>
       </li>
     </ul>
@@ -22,6 +22,12 @@ export default {
     }
   },
   methods: {
+    updateItemFrom(data){
+      this.animeList_item = data
+    },
+    delete_item(id){
+     this.$bus.$emit('delete_item',id)
+    },
     // 触发全局事件让数据从父组件那边更新
     animeListForm(data){
       this.animeList_item = data
@@ -68,6 +74,7 @@ export default {
   // },
   // 实现鼠标悬停显示删除按钮+选定条背景色加深,鼠标离开删除按钮消失的方法+背景色消失的效果
   mounted() {
+    this.$bus.$on('updateItemFrom',this.updateItemFrom)
     // 绑定全局事件
     this.$bus.$on('animeListFrom',this.animeListForm)
     // 绑定全局事件

@@ -2,7 +2,7 @@
   <div class="anime_footer">
     <input @click="selectAll(val)" type="checkbox" :checked="count===animeList_f.length" name="anime_done">
     <span>
-    &emsp;已完成{{ count }}/全部{{ animeList.length }}
+    &emsp;已勾选{{ count }}/全部{{ animeList.length }}
       <button @click="deleteSelected" class="button_f" type="button">删除已选</button>
     </span>
   </div>

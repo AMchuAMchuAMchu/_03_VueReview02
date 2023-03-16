@@ -90,6 +90,10 @@ export default {
   //销毁之前:解绑自定义事件
   beforeDestroy() {
     this.$bus.$off('checkDone')
+    this.$bus.$off('searchAnime')
+    this.$bus.$off('selectAll')
+    this.$bus.$off('cancelAll')
+    this.$bus.$off('deleteSelected')
   }
 
 }

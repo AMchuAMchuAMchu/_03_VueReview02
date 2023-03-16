@@ -13,8 +13,10 @@ export default {
     }
   },
   methods:{
+    // 添加anime
     searchAnime(){
       this.$bus.$emit('searchAnime',this.anime_name)
+      // 重置
       this.anime_name = ''
     }
   }

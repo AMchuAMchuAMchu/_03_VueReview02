@@ -22,12 +22,15 @@ export default {
     }
   },
   methods: {
+    // 触发全局事件让数据从父组件那边更新
     animeListForm(data){
       this.animeList_item = data
     },
+    //全局事件查看数据是否更新
     item_watch(){
       // console.log('ite_watch',this.animeList)
     },
+    //点击选定/取消anime
     forCheckbox(id) {
       // console.log('>>>',id)
       this.animeList_item.forEach(p => {
@@ -35,6 +38,7 @@ export default {
           p.isDone = !p.isDone
         }
       })
+      // 触发全局事件传递数据
       this.$bus.$emit('checkDone', this.animeList_item)
     },
   },
@@ -62,23 +66,31 @@ export default {
   //     }
   //   }
   // },
+  // 实现鼠标悬停显示删除按钮+选定条背景色加深,鼠标离开删除按钮消失的方法+背景色消失的效果
   mounted() {
+    // 绑定全局事件
     this.$bus.$on('animeListFrom',this.animeListForm)
+    // 绑定全局事件
     this.$bus.$on('item_watch',this.item_watch)
     //因为需要绑定多个,所以的话是querySelectorAll
     let arr_li = document.querySelectorAll('.li_item')
     //这里的话只有每一个都添加绑定事件的话才会
     arr_li.forEach(item => {
+      //鼠标进去触发事件
       item.addEventListener('mouseenter', () => {
         // console.log('>>>',item.childNodes[3].childNodes[0])
+        // 选定节点修改样式
         item.childNodes[3].childNodes[0].style.display = 'block'
       }),
+          // 鼠标离开事件触发
           item.addEventListener('mouseleave', () => {
             // console.log('>>>')
+            // 选定节点修改样式
             item.childNodes[3].childNodes[0].style.display = 'none'
           })
     })
   },
+  // 生命周期钩子 逻辑同上mounted钩子,不过这里的话是实现页面一上来展示鼠标一进去/离开触发事件
   updated() {
     // console.log('myitem>>>',this.animeList_item)
     //因为需要绑定多个,所以的话是querySelectorAll

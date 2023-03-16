@@ -15,13 +15,19 @@
 <script>
 export default {
   name: "MyItem",
-  props: ['animeList'],
+  props:['animeList'],
   data() {
     return {
-      'animeList_item': this.animeList
+      'animeList_item':this.animeList,
     }
   },
   methods: {
+    animeListForm(data){
+      this.animeList_item = data
+    },
+    item_watch(){
+      // console.log('ite_watch',this.animeList)
+    },
     forCheckbox(id) {
       // console.log('>>>',id)
       this.animeList_item.forEach(p => {
@@ -57,6 +63,8 @@ export default {
   //   }
   // },
   mounted() {
+    this.$bus.$on('animeListFrom',this.animeListForm)
+    this.$bus.$on('item_watch',this.item_watch)
     //因为需要绑定多个,所以的话是querySelectorAll
     let arr_li = document.querySelectorAll('.li_item')
     //这里的话只有每一个都添加绑定事件的话才会
@@ -72,6 +80,7 @@ export default {
     })
   },
   updated() {
+    // console.log('myitem>>>',this.animeList_item)
     //因为需要绑定多个,所以的话是querySelectorAll
     let arr_li = document.querySelectorAll('.li_item')
     //这里的话只有每一个都添加绑定事件的话才会

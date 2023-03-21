@@ -8,7 +8,10 @@
 <!--    <Filters/>-->
 <!--    <LifeCircleHook/>-->
 <!--    <Father1001/>-->
-    <MyTodoList/>
+<!--    <MyTodoList/>-->
+<!--    <WebLocalStorage/>-->
+<!--    <Anime1001/>-->
+    <AnimeList/>
   </div>
 </template>
 
@@ -34,13 +37,21 @@
 // import Son from "@/components/cli/Son";
 // import Father1001 from "@/components/cli/Father1001";
 
-import MySearch from "@/components/todoList/MySearch";
+// import MySearch from "@/components/todoList/MySearch";
+//
+// import MyList from "@/components/todoList/MyList";
+//
+// import MyFooter from "@/components/todoList/MyFooter";
+//
+// import MyTodoList from "@/components/todoList/MyTodoList";
 
-import MyList from "@/components/todoList/MyList";
+// import WebLocalStorage from "@/components/web_local_storage/WebLocalStorage";
 
-import MyFooter from "@/components/todoList/MyFooter";
+// import PubSub from "@/components/pubsub/PubSub";
 
-import MyTodoList from "@/components/todoList/MyTodoList";
+// import Anime1001 from "@/components/pubsub/Anime1001";
+
+import AnimeList from "@/components/slot/AnimeList";
 
 export default {
   name: 'App',
@@ -55,11 +66,14 @@ export default {
     // Father,
     // Son,
     // Father1001,
-    MySearch,
-    MyList,
-    MyFooter,
-    MyTodoList
-
+    // MySearch,
+    // MyList,
+    // MyFooter,
+    // MyTodoList
+    //   WebLocalStorage
+    // PubSub,
+    // Anime1001
+    AnimeList
   }
 }
 </script>
